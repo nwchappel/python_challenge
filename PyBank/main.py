@@ -22,4 +22,5 @@ with open(budget_csv, newline="") as csvfile:
         row_totals = row[1]
         #print(row_totals)
         total.append(int(row_totals))
-    print(f"Total: {sum(total)}")
+    print(f"Total: ${sum(total)}")
+    
