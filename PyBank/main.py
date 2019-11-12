@@ -14,13 +14,16 @@ with open(budget_csv, newline="") as csvfile:
     print("Total Months: " + str(int(month_count)))
 
 total = []
+average_change = []
 
 with open(budget_csv, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvfile)
     for row in csvreader:
         row_totals = row[1]
-        #print(row_totals)
+        # print(row_totals)
         total.append(int(row_totals))
     print(f"Total: ${sum(total)}")
-    
+    for i in range(len(total)-1):
+        average_change.append(total[i+1] - total[i])
+    print(f"Average Change: ${round(sum(average_change) / len(average_change),2)}")
